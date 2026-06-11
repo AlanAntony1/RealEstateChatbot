@@ -14,42 +14,21 @@ from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai.types import Content, Part
 from google.oauth2 import service_account
+from google.auth.transport.requests import Request
 import vertexai
+import tempfile
+import json
 
-for key in ["GOOGLE_GENAI_USE_VERTEXAI", "GOOGLE_CLOUD_PROJECT", 
-            "GOOGLE_CLOUD_LOCATION", "AWS_ACCESS_KEY_ID",
-            "AWS_SECRET_ACCESS_KEY", "AWS_DEFAULT_REGION"]:
-    if key in st.secrets:
-        os.environ[key] = st.secrets[key]
+if "gcp_service_account" in st.secrets:
+    service_account_info = dict(st.secrets["gcp_service_account"])
 
-@st.cache_resource
-def init_vertex():
-    credentials = service_account.Credentials.from_service_account_info(
-        st.secrets["gcp_service_account"]
-    )
-
-    vertexai.init(
-        project="realestate-assistant-499113",
-        location="us-central1",
-        credentials=credentials,
-    )
-
-    return credentials
-
-init_vertex()
-
-try:
-    credentials = service_account.Credentials.from_service_account_info(
-        st.secrets["gcp_service_account"]
-    )
-
-    credentials.refresh(
-        google.auth.transport.requests.Request()
-    )
-
-    st.success("Service account authentication successful")
-except Exception as e:
-    st.error(f"Authentication failed: {e}")
+    with tempfile.NamedTemporaryFile(
+        mode="w",
+        suffix=".json",
+        delete=False
+    ) as f:
+        json.dump(service_account_info, f)
+        os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = f.name
 
 
 # ── Page config ───────────────────────────────────────────────
@@ -148,8 +127,19 @@ AWS_REGION              = "us-east-1"
 # ── Initialize Vertex AI ──────────────────────────────────────
 @st.cache_resource
 def init_vertex():
-    vertexai.init(project="realestate-assistant-499113", location="us-central1")
-    return True
+    credentials = service_account.Credentials.from_service_account_info(
+        dict(st.secrets["gcp_service_account"])
+    )
+
+    credentials.refresh(Request())
+
+    vertexai.init(
+        project=st.secrets["GOOGLE_CLOUD_PROJECT"],
+        location=st.secrets["GOOGLE_CLOUD_LOCATION"],
+        credentials=credentials,
+    )
+
+    return credentials
 
 # ── Database helpers ──────────────────────────────────────────
 from mock_data import MOCK_PROPERTIES, MOCK_FINANCIAL_SUMMARY
