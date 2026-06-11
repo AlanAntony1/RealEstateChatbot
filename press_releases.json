@@ -1,0 +1,122 @@
+[
+  {
+    "id": "PR001",
+    "company": "Prologis",
+    "date": "2024-10-15",
+    "title": "Prologis Reports Third Quarter 2024 Earnings",
+    "type": "earnings",
+    "summary": "Prologis reported Q3 2024 core FFO of $1.43 per diluted share, representing a 9% increase year-over-year. Total revenues reached $1.9 billion for the quarter.",
+    "highlights": [
+      "Core FFO of $1.43 per diluted share, up 9% YoY",
+      "Total revenues of $1.9 billion",
+      "Leased 52 million square feet globally",
+      "Occupancy rate of 96.7% across portfolio"
+    ],
+    "tags": ["earnings", "quarterly", "FFO", "revenue"]
+  },
+  {
+    "id": "PR002",
+    "company": "Prologis",
+    "date": "2024-08-22",
+    "title": "Prologis Acquires 12-Property Industrial Portfolio in Chicago",
+    "type": "acquisition",
+    "summary": "Prologis announced the acquisition of a 12-property industrial portfolio in the Chicago metro area for approximately $480 million, adding 6.2 million square feet to its Midwest holdings.",
+    "highlights": [
+      "12 industrial properties acquired",
+      "Total consideration of $480 million",
+      "6.2 million square feet added",
+      "Properties located in key Chicago logistics corridors"
+    ],
+    "tags": ["acquisition", "Chicago", "industrial", "expansion"]
+  },
+  {
+    "id": "PR003",
+    "company": "Prologis",
+    "date": "2024-06-10",
+    "title": "Prologis Expands Presence in Dallas-Fort Worth with New Development",
+    "type": "expansion",
+    "summary": "Prologis broke ground on a 2.4 million square foot logistics campus in the Dallas-Fort Worth metro area, expected to be completed in Q2 2025 with an estimated investment of $320 million.",
+    "highlights": [
+      "2.4 million sq ft logistics campus",
+      "Investment of $320 million",
+      "Expected completion Q2 2025",
+      "Located near DFW International Airport"
+    ],
+    "tags": ["expansion", "development", "Dallas", "logistics"]
+  },
+  {
+    "id": "PR004",
+    "company": "Prologis",
+    "date": "2024-04-18",
+    "title": "Prologis Reports First Quarter 2024 Earnings",
+    "type": "earnings",
+    "summary": "Prologis reported Q1 2024 core FFO of $1.28 per diluted share. The company raised its full-year 2024 guidance citing strong demand for logistics real estate.",
+    "highlights": [
+      "Core FFO of $1.28 per diluted share",
+      "Full-year 2024 guidance raised",
+      "Rent growth of 68% on lease rollovers",
+      "Development starts of $800 million"
+    ],
+    "tags": ["earnings", "quarterly", "guidance", "rent growth"]
+  },
+  {
+    "id": "PR005",
+    "company": "Prologis",
+    "date": "2024-02-05",
+    "title": "Prologis Announces $1.5 Billion Sustainability-Linked Bond Offering",
+    "type": "financing",
+    "summary": "Prologis priced a $1.5 billion sustainability-linked bond offering to fund green building initiatives and solar energy installations across its global portfolio.",
+    "highlights": [
+      "$1.5 billion bond offering",
+      "Tied to sustainability targets",
+      "Funds solar installations on warehouse rooftops",
+      "Part of broader ESG strategy"
+    ],
+    "tags": ["financing", "sustainability", "ESG", "bonds"]
+  },
+  {
+    "id": "PR006",
+    "company": "Prologis",
+    "date": "2023-11-30",
+    "title": "Prologis Completes Merger with Duke Realty",
+    "type": "merger",
+    "summary": "Prologis completed its $26 billion merger with Duke Realty, making it the largest industrial real estate company in the United States with over 1 billion square feet under management.",
+    "highlights": [
+      "$26 billion transaction value",
+      "Over 1 billion sq ft under management",
+      "Largest industrial REIT in the US",
+      "Significant presence added in Southeast and Midwest markets"
+    ],
+    "tags": ["merger", "Duke Realty", "expansion", "industrial"]
+  },
+  {
+    "id": "PR007",
+    "company": "Prologis",
+    "date": "2023-09-14",
+    "title": "Prologis Launches AI-Powered Property Management Platform",
+    "type": "technology",
+    "summary": "Prologis unveiled an AI-powered property management platform called Essentials, designed to help tenants manage energy, maintenance, and logistics operations across leased properties.",
+    "highlights": [
+      "AI-powered platform for tenants",
+      "Covers energy, maintenance, and logistics",
+      "Deployed across 500 properties initially",
+      "Expected to reduce tenant operating costs by 15%"
+    ],
+    "tags": ["technology", "AI", "property management", "innovation"]
+  },
+  {
+    "id": "PR008",
+    "company": "Prologis",
+    "date": "2023-07-20",
+    "title": "Prologis Reports Record Second Quarter 2023 Earnings",
+    "type": "earnings",
+    "summary": "Prologis reported record Q2 2023 core FFO of $1.36 per diluted share driven by record rent growth of 78% on lease rollovers and near full occupancy across its global portfolio.",
+    "highlights": [
+      "Record core FFO of $1.36 per diluted share",
+      "Rent growth of 78% on lease rollovers",
+      "Global occupancy of 97.6%",
+      "Raised full-year 2023 guidance"
+    ],
+    "tags": ["earnings", "quarterly", "record", "rent growth"]
+  }
+]
