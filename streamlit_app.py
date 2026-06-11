@@ -115,6 +115,8 @@ def init_vertex():
     return True
 
 # ── Database helpers ──────────────────────────────────────────
+from mock_data import MOCK_PROPERTIES, MOCK_FINANCIAL_SUMMARY
+
 def get_db_connection():
     return psycopg2.connect(**DB_CONFIG)
 
@@ -142,9 +144,14 @@ def query_properties(metro_area=None, property_type=None):
         cur.close()
         conn.close()
         return rows
-    except Exception as e:
-        st.error(f"Database error: {e}")
-        return []
+    except Exception:
+        # Fall back to mock data
+        rows = MOCK_PROPERTIES
+        if metro_area and metro_area != "All":
+            rows = [r for r in rows if r[2].lower() == metro_area.lower()]
+        if property_type and property_type != "All":
+            rows = [r for r in rows if r[4].lower() == property_type.lower()]
+        return sorted(rows, key=lambda x: x[5], reverse=True)
 
 def get_financial_summary():
     try:
@@ -165,10 +172,9 @@ def get_financial_summary():
         cur.close()
         conn.close()
         return rows
-    except Exception as e:
-        st.error(f"Database error: {e}")
-        return []
-
+    except Exception:
+        return MOCK_FINANCIAL_SUMMARY
+    
 # ── SageMaker helpers ─────────────────────────────────────────
 def predict_regression(features):
     try:

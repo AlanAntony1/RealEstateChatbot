@@ -1,0 +1,19 @@
+# Add model artifacts to gitignore
+echo "model_artifacts/*.joblib" >> .gitignore
+echo "model_artifacts/*.tar.gz" >> .gitignore
+
+# Remove the large files from git tracking
+git rm --cached model_artifacts/rf_regressor.joblib
+git rm --cached model_artifacts/logistic_classifier.joblib
+git rm --cached model_artifacts/scaler_regression.joblib
+git rm --cached model_artifacts/scaler_classification.joblib
+git rm --cached model_artifacts/label_encoders.joblib
+git rm --cached model_artifacts/feature_columns.joblib
+git rm --cached model_artifacts/*.tar.gz 2>/dev/null
+
+# Commit the removal
+git add .gitignore
+git commit -m "Remove large model artifacts from git tracking"
+
+# Push
+git push -u origin main
