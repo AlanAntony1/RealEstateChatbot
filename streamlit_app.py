@@ -13,6 +13,7 @@ from google.adk.tools import FunctionTool
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai.types import Content, Part
+from google.oauth2 import service_account
 import vertexai
 
 for key in ["GOOGLE_GENAI_USE_VERTEXAI", "GOOGLE_CLOUD_PROJECT", 
@@ -21,7 +22,36 @@ for key in ["GOOGLE_GENAI_USE_VERTEXAI", "GOOGLE_CLOUD_PROJECT",
     if key in st.secrets:
         os.environ[key] = st.secrets[key]
 
-        
+@st.cache_resource
+def init_vertex():
+    credentials = service_account.Credentials.from_service_account_info(
+        st.secrets["gcp_service_account"]
+    )
+
+    vertexai.init(
+        project="realestate-assistant-499113",
+        location="us-central1",
+        credentials=credentials,
+    )
+
+    return credentials
+
+init_vertex()
+
+try:
+    credentials = service_account.Credentials.from_service_account_info(
+        st.secrets["gcp_service_account"]
+    )
+
+    credentials.refresh(
+        google.auth.transport.requests.Request()
+    )
+
+    st.success("Service account authentication successful")
+except Exception as e:
+    st.error(f"Authentication failed: {e}")
+
+
 # ── Page config ───────────────────────────────────────────────
 st.set_page_config(
     page_title="Real Estate Financial Assistant",
