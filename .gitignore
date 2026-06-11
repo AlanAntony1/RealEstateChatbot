@@ -1,2 +1,3 @@
 model_artifacts/*.joblib
 model_artifacts/*.tar.gz
+.streamlit/secrets.toml
