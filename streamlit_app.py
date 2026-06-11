@@ -15,6 +15,13 @@ from google.adk.sessions import InMemorySessionService
 from google.genai.types import Content, Part
 import vertexai
 
+for key in ["GOOGLE_GENAI_USE_VERTEXAI", "GOOGLE_CLOUD_PROJECT", 
+            "GOOGLE_CLOUD_LOCATION", "AWS_ACCESS_KEY_ID",
+            "AWS_SECRET_ACCESS_KEY", "AWS_DEFAULT_REGION"]:
+    if key in st.secrets:
+        os.environ[key] = st.secrets[key]
+
+        
 # ── Page config ───────────────────────────────────────────────
 st.set_page_config(
     page_title="Real Estate Financial Assistant",
